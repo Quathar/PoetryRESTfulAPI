@@ -1,1 +1,6 @@
-rootProject.name = 'PoetryAPI'
+// Project name
+rootProject.name = 'PoetryRESTfulAPI'
+
+// Modules
+include ':api'
+include ':client'

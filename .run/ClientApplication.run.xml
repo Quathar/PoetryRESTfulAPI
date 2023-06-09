@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="ClientApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="PoetryRESTfulAPI.client.main" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.quathar.api.client.ClientApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
