@@ -14,4 +14,5 @@ public interface AuthorService extends GeneralService<Author, Long> {
 
     Author create(AuthorDTO poemDTO);
     Author update(Long id, AuthorDTO updatedAuthorDTO);
+
 }

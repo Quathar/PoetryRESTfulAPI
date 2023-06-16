@@ -1,7 +1,6 @@
 package com.quathar.api.data.repository;
 
 import com.quathar.api.data.entity.Author;
-
 import org.springframework.data.repository.ListCrudRepository;
 import org.springframework.stereotype.Repository;
 

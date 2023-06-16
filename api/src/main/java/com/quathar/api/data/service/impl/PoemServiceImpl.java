@@ -53,6 +53,16 @@ public class PoemServiceImpl extends GeneralServiceImpl<Poem, Long> implements P
         Poem poem = _poemRepository.findById(id)
                                    .orElseThrow(ResourceNotFoundException::new);
 
+        // Basics
+        if (updatedPoem.getTitle() != null)
+            poem.setTitle(updatedPoem.getTitle());
+        if (updatedPoem.getTheme() != null)
+            poem.setTheme(updatedPoem.getTheme());
+        if (updatedPoem.getContent() != null)
+            poem.setContent(updatedPoem.getContent());
+        if (updatedPoem.getAuthor() != null)
+            poem.setAuthor(updatedPoem.getAuthor());
+
         return _poemRepository.save(poem);
     }
 
@@ -61,9 +71,20 @@ public class PoemServiceImpl extends GeneralServiceImpl<Poem, Long> implements P
         Poem poem = _poemRepository.findById(id)
                                    .orElseThrow(ResourceNotFoundException::new);
 
+        // Basics
         if (updatedPoemDTO.getTitle() != null)
             poem.setTitle(updatedPoemDTO.getTitle());
+        if (updatedPoemDTO.getTheme() != null)
+            poem.setTheme(updatedPoemDTO.getTheme());
+        if (updatedPoemDTO.getContent() != null)
+            poem.setContent(updatedPoemDTO.getContent());
 
+        // Relations
+        if (updatedPoemDTO.getAuthor() != null) {
+            Author author = _authorRepository.findById(updatedPoemDTO.getAuthor())
+                                             .orElseThrow(ResourceNotFoundException::new);
+            poem.setAuthor(author);
+        }
 
         return _poemRepository.save(poem);
     }

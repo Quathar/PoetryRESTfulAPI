@@ -1,4 +1,4 @@
-package com.quathar.api.controller;
+package com.quathar.api.application.controller;
 
 import com.quathar.api.data.entity.Author;
 import com.quathar.api.data.model.dto.AuthorDTO;
@@ -57,9 +57,6 @@ public class AuthorController {
         return ResponseEntity.ok(AuthorMapper.toDto(_authorService.getById(id)));
     }
 
-    // TODO: Check this
-    // TODO: Check this
-    // TODO: Check this
     @PostMapping("")
     public ResponseEntity<Author> createPoem(@Valid @RequestBody AuthorDTO authorDTO) {
         return ResponseEntity.status(HttpStatus.CREATED)

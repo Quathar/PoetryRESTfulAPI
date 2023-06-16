@@ -1,5 +1,5 @@
 // Project name
-rootProject.name = 'PoetryRESTfulAPI'
+rootProject.name = 'BasicRESTfulAPI'
 
 // Modules
 include ':api'

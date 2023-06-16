@@ -1,4 +1,4 @@
-package com.quathar.api.controller;
+package com.quathar.api.application.controller;
 
 import com.quathar.api.data.entity.Poem;
 import com.quathar.api.data.model.dto.PoemDTO;
@@ -57,18 +57,12 @@ public class PoemController {
         return ResponseEntity.ok(PoemMapper.toDto(_poemService.getById(id)));
     }
 
-    // TODO: Check this
-    // TODO: Check this
-    // TODO: Check this
     @PostMapping("")
     public ResponseEntity<Poem> createPoem(@Valid @RequestBody PoemDTO poemDTO) {
         return ResponseEntity.status(HttpStatus.CREATED)
                              .body(_poemService.create(poemDTO));
     }
 
-    // TODO: Check this
-    // TODO: Check this
-    // TODO: Check this
     @PutMapping("/{id}")
     public ResponseEntity<Poem> updatePoem(
             @PathVariable(value="id") Long id,

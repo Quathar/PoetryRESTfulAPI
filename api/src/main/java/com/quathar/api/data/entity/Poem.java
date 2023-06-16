@@ -36,7 +36,7 @@ public class Poem {
 
     // Basics
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="poem_id")
     private Long id;
     @Column                 // Amor, Gozo, Melancolía, Muerte
@@ -48,9 +48,9 @@ public class Poem {
 
     // Relations
     @ManyToOne
-    @JoinColumn(name="author_id", foreignKey = @ForeignKey(name = "FK_author"))
-    // It only works in the @ManyToOne relationship if it's Unidirectional,
-    // this is Bidirectional.
+    @JoinColumn(name = "author_id", foreignKey = @ForeignKey(name = "FK_author"))
+    // It only works in the @ManyToOne relationship if it's UNIDIRECTIONAL,
+    // this is BIDIRECTIONAL.
 //    @OnDelete(action=OnDeleteAction.CASCADE)
     @JsonBackReference
     private Author author;

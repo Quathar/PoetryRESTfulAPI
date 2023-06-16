@@ -1,4 +1,4 @@
-package com.quathar.api.controller;
+package com.quathar.api.application.controller;
 
 import com.quathar.api.data.exception.ResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
