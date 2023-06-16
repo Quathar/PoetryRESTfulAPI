@@ -3,6 +3,7 @@ package com.quathar.api.client.helper;
 import com.quathar.api.client.model.JwtDTO;
 import com.quathar.api.client.model.LoginDTO;
 import com.quathar.api.client.model.Poem;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
@@ -43,9 +44,6 @@ public class Runner {
         return builder.build();
     }
 
-    // TODO: Check PUT (FAIL)
-    // TODO: Check PUT (FAIL)
-    // TODO: Check PUT (FAIL)
     @Bean
     public CommandLineRunner run(RestTemplate restTemplate) throws IOException {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
