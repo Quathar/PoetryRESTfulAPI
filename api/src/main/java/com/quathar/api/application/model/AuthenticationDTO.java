@@ -1,5 +1,6 @@
 package com.quathar.api.application.model;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,7 +18,9 @@ import lombok.NoArgsConstructor;
 public class AuthenticationDTO {
 
     // <<-FIELDS->>
+    @NotNull
     private String username;
+    @NotNull
     private String password;
 
 }

@@ -18,15 +18,15 @@ INSERT INTO poems(author_id, theme, title, content)
                               'que sabe sentir. '           ||
                               'Pero hoy soy una escritora ' ||
                               'que no puede escribir.'),
+        (1, 'Tristeza', 'No-Title', 'Estoy tan acostumbrada a escribir por sufrir, ' ||
+                                    'que mi mente no es capaz de interpretar '       ||
+                                    'a través de palabras '                          ||
+                                    'lo que me haces sentir.'),
         (1, 'Vida', 'Vivas', 'Estemos más vivas que muertas. '       ||
                              'Estemos más sentidas que deploradas. ' ||
                              'Desdichados días con lamentos, '       ||
                              'y cálidos segundos por sonrisas '      ||
                              '¿Y si disfrutáramos el morar?'),
-        (1, 'Tristeza', 'No-Title', 'Estoy tan acostumbrada a escribir por sufrir, ' ||
-                                    'que mi mente no es capaz de interpretar '       ||
-                                    'a través de palabras '                          ||
-                                    'lo que me haces sentir.'),
         (2, 'Amor', null, 'Te prometo una cosa, '  ||
                           'acordarme de vos '      ||
                           'en el último instante ' ||

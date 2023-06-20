@@ -58,17 +58,17 @@ public class PoemController {
     }
 
     @PostMapping("")
-    public ResponseEntity<Poem> createPoem(@Valid @RequestBody PoemDTO poemDTO) {
+    public ResponseEntity<PoemDTO> createPoem(@Valid @RequestBody PoemDTO poemDTO) {
         return ResponseEntity.status(HttpStatus.CREATED)
-                             .body(_poemService.create(poemDTO));
+                             .body(PoemMapper.toDto(_poemService.create(poemDTO)));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Poem> updatePoem(
+    public ResponseEntity<PoemDTO> updatePoem(
             @PathVariable(value="id") Long id,
             @RequestBody PoemDTO updatedPoemDTO
     ) {
-        return ResponseEntity.ok(_poemService.update(id, updatedPoemDTO));
+        return ResponseEntity.ok(PoemMapper.toDto(_poemService.update(id, updatedPoemDTO)));
     }
 
     @DeleteMapping("/{id}")

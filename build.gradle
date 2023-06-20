@@ -20,6 +20,7 @@ subprojects {
 
     repositories {
         mavenCentral()
+        maven { url "https://repo1.maven.org/maven2" }
     }
 
     bootJar {
@@ -34,8 +35,10 @@ subprojects {
         compileOnly 'org.projectlombok:lombok'
         annotationProcessor 'org.projectlombok:lombok'
 
+        // XML Jackson
+        implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.4'
+
         // Test
-        implementation 'org.springframework.boot:spring-boot-starter'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
     }
 

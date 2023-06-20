@@ -5,9 +5,12 @@ import com.quathar.api.data.entity.User;
 import com.quathar.api.data.service.JwtService;
 import com.quathar.api.data.service.UserService;
 
+import jakarta.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,15 +48,21 @@ public class UserController {
 
     // <<-METHOD->>
     @PostMapping("/login")
-    public ResponseEntity<?> authenticate(@RequestBody AuthenticationDTO authRequest) {
-        User user = _userService.getByUsername(authRequest.getUsername());
+    public ResponseEntity<?> authenticate(
+            @Valid @RequestBody
+            AuthenticationDTO authRequest,
+            BindingResult bindingResult
+    ) {
+        if (!bindingResult.hasErrors()) {
+            User user = _userService.getByUsername(authRequest.getUsername());
 
-        if (!_passwordEncoder.matches(authRequest.getPassword(), user.getEncryptedPassword()))
-            return ResponseEntity.badRequest()
-                                 .build();
-        return ResponseEntity.ok(Map.of(
-                "jwt", _jwtService.createJwt(user)
-        ));
+            if (!_passwordEncoder.matches(authRequest.getPassword(), user.getEncryptedPassword()))
+                return ResponseEntity.badRequest()
+                        .build();
+            return ResponseEntity.ok(Map.of(
+                    "jwt", _jwtService.createJwt(user)
+            ));
+        } else return ResponseEntity.badRequest().build();
     }
 
 }
